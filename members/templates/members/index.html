@@ -1,0 +1,12 @@
+{% if member_list %}
+  <ul>
+    {% for member in member_list %}
+      <li>{{ member.message }}</li>
+      <a href="{% url 'members:update' member.id %}">edit member</a>
+      <a href="{% url 'members:delete' member.id %}">delete member</a>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No members are enrolled at this time.</p>
+{% endif %}
+<a href="{% url 'members:create' %}">Enroll a New Member!</a>
